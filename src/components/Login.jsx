@@ -6,13 +6,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState, useContext, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 
 export default function Login() {
-  const [loginState, setloginState] = useState(false);
-  const [mobile, setMobile] = useState("");
+  const [mobile, setMobile] = useState("8448569131");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const { setUser } = useContext(UserContext);

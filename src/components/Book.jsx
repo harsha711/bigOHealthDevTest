@@ -122,7 +122,7 @@ export default function Book({ open, onClose, doctor }) {
   const handleSubmit = () => {
     if (
       errors &&
-      Object.keys(errors).length === 0 &&
+      Object.keys(errors).length !== 0 &&
       Object.getPrototypeOf(errors) === Object.prototype
     ) {
       alert("There are errors in your form!");
