@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <UserContext.Provider value={{ user, setUser }}>
         <Navbar />
-        <Router basename="big-o-health-dev-test">
+        <Router>
           <Routes>
             <Route exact path="/" element={<Login />} />
             <Route element={<ProtectedRoutes />}>
