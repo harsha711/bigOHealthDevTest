@@ -113,6 +113,7 @@ export default function Book({ open, onClose, doctor }) {
       );
       const fetchedData = await response.json();
       setAppointmentId(fetchedData.appointmentId);
+      setValues(initialFieldValues);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -127,13 +128,18 @@ export default function Book({ open, onClose, doctor }) {
     if (countErrors > 0) {
       alert("There are errors in your form!");
     } else {
-      console.log(errors);
       submitPatientData();
     }
   };
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog
+      open={open}
+      onClose={() => {
+        setAppointmentId(null);
+        onClose();
+      }}
+    >
       {loading ? (
         <DialogTitle>Loading... Please wait</DialogTitle>
       ) : (
