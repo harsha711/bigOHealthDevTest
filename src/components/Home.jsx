@@ -23,26 +23,26 @@ export default function Home() {
   const [open, setOpen] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState({});
 
-  const fetchDoctorsData = async () => {
-    try {
-      setLoading(true);
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pageNum: pageNum }),
-      };
-      const response = await fetch(
-        "https://bigohealthdevtest.herokuapp.com/doctorList?pageNum=" + pageNum,
-        requestOptions
-      );
-      const fetchedData = await response.json();
-      setDoctors(fetchedData.data);
-      setTotal(fetchedData.total);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchDoctorsData = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const requestOptions = {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ pageNum: pageNum }),
+  //     };
+  //     const response = await fetch(
+  //       "https://bigohealthdevtest.herokuapp.com/doctorList?pageNum=" + pageNum,
+  //       requestOptions
+  //     );
+  //     const fetchedData = await response.json();
+  //     setDoctors(fetchedData.data);
+  //     setTotal(fetchedData.total);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const fetchCitiesData = async () => {
     try {
@@ -90,10 +90,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetchDoctorsData();
+    //fetchDoctorsData();
     fetchCitiesData();
     fetchDoctorsPerCityData();
-  }, [pageNum, city]);
+  }, [city, pageNum]);
 
   if (loading) {
     return (

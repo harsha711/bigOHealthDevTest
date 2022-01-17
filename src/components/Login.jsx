@@ -31,11 +31,7 @@ export default function Login() {
       );
       const fetchedData = await response.json();
       if (!fetchedData.auth) {
-        if (fetchedData.message.errors[0].msg.length !== 0) {
-          setMessage(fetchedData.message.errors[0].msg);
-        } else {
-          setMessage(fetchedData.message);
-        }
+        setMessage(fetchedData.message);
       } else {
         setUser(fetchedData);
         navigate("/view");
@@ -87,6 +83,7 @@ export default function Login() {
               onClick={async () => {
                 await handleLogin();
               }}
+              disabled={mobile.length < 10 ? true : false}
             >
               Login
             </Button>

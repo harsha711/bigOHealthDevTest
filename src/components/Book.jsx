@@ -120,13 +120,14 @@ export default function Book({ open, onClose, doctor }) {
   };
 
   const handleSubmit = () => {
-    if (
-      errors &&
-      Object.keys(errors).length !== 0 &&
-      Object.getPrototypeOf(errors) === Object.prototype
-    ) {
+    let countErrors = 0;
+    for (const key in errors) {
+      if (errors[key].length !== 0) countErrors++;
+    }
+    if (countErrors > 0) {
       alert("There are errors in your form!");
     } else {
+      console.log(errors);
       submitPatientData();
     }
   };
