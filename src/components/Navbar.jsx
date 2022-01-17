@@ -22,7 +22,7 @@ export default function Navbar() {
             title="Github"
             component="a"
             target="_blank"
-            href="https://github.com/harsha711/audioPlayer-react"
+            href="https://github.com/harsha711/bigOHealthDevTest"
             color="inherit"
           >
             <IconButton color="inherit" sx={{ mx: 2 }}>
